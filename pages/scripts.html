@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>50 Scripts para Pedir Ayuda y Poner Límites | Bonus Mamá</title>
+  <meta name="description" content="Frases preparadas para comunicarse con calma y claridad. 50 scripts listos para pedir ayuda y poner límites." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema:#F8F4EF;
+      --rosa:#EFD9D9;
+      --terracotta:#C9886B;
+      --salvia:#C9D6C5;
+      --antracite:#2D2A2A;
+      --white:#ffffff;
+      --line:rgba(45,42,42,.12);
+      --ok:#2f6c4f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      background:var(--crema);
+      color:var(--antracite);
+    }
+
+    .inner{
+      padding:16px 0 34px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:0 12px;
+      background:#fff;
+      color:var(--antracite);
+      font-weight:700;
+      font-size:.92rem;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, rgba(239,217,217,.68), rgba(248,244,239,.95));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:12px;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size:clamp(1.4rem,5.5vw,2rem);
+      line-height:1.2;
+    }
+
+    .hero p{
+      margin:0;
+      line-height:1.45;
+      color:rgba(45,42,42,.9);
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(45,42,42,.05);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      line-height:1.3;
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:.98rem;
+      line-height:1.3;
+    }
+
+    .muted{
+      color:rgba(45,42,42,.78);
+      font-size:.94rem;
+      line-height:1.45;
+    }
+
+    .mini-list{
+      margin:8px 0 0 18px;
+      padding:0;
+      line-height:1.45;
+      font-size:.95rem;
+    }
+
+    .formula{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(201,214,197,.42);
+      border:1px solid var(--line);
+      font-weight:700;
+      line-height:1.4;
+    }
+
+    .search-wrap{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .search-input{
+      width:100%;
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      background:#fff;
+      color:var(--antracite);
+    }
+
+    .section{
+      margin-top:12px;
+    }
+
+    .section-title{
+      margin:0 0 8px;
+      font-size:1rem;
+      line-height:1.35;
+      padding:8px 10px;
+      border-radius:10px;
+      background:rgba(239,217,217,.45);
+      border:1px solid var(--line);
+    }
+
+    .scripts-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .script-item{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px;
+      background:#fff;
+    }
+
+    .script-text{
+      margin:0 0 8px;
+      line-height:1.45;
+      font-size:.96rem;
+    }
+
+    .script-actions{
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .copy-btn{
+      min-height:38px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      padding:0 10px;
+      font-weight:700;
+      font-size:.86rem;
+      cursor:pointer;
+      color:var(--antracite);
+    }
+
+    .copy-btn.ok{
+      color:var(--ok);
+      border-color:rgba(47,108,79,.35);
+    }
+
+    .empty{
+      display:none;
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.92rem;
+      padding:8px 0 2px;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+
+    @media (min-width:860px){
+      .scripts-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+    <div class="topbar">
+      <a class="btn" href="../index.html">← Volver a recursos</a>
+    </div>
+
+    <section class="hero">
+      <h1>50 Scripts para Pedir Ayuda y Poner Límites</h1>
+      <p>Frases preparadas para comunicarse con calma y claridad.</p>
+    </section>
+
+    <section class="card">
+      <h2>Mini guía de uso</h2>
+      <p class="muted">Cómo usar estos scripts en 3 pasos:</p>
+      <ol class="mini-list">
+        <li>Habla en primera persona: <strong>“Yo necesito…”</strong></li>
+        <li>Haz una petición concreta: <strong>qué + cuándo</strong></li>
+        <li>Evita justificarte de más: <strong>breve, claro, firme</strong></li>
+      </ol>
+
+      <div class="formula">Fórmula rápida: “Ahora necesito ___ para poder ___.”</div>
+
+      <div class="search-wrap">
+        <input id="searchInput" class="search-input" type="text" placeholder="Buscar script (ej. pareja, culpa, límite, descanso…)" />
+      </div>
+      <p class="muted" style="margin-top:8px;">Usa estas frases tal como están o adáptalas a tu estilo. Clave: tono sereno, mensaje concreto, una petición por vez.</p>
+      <p id="emptyState" class="empty">No hay resultados con esa búsqueda.</p>
+    </section>
+
+    <section class="section" data-group="pareja">
+      <h3 class="section-title">1) Pedir ayuda a la pareja (10)</h3>
+      <div class="scripts-grid">
+        <article class="script-item"><p class="script-text">“Hoy necesito que te encargues de la cena. Yo necesito bajar una marcha.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“¿Puedes ocuparte del baño de [nombre] hoy a las 20:00?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Esta tarde necesito 30 minutos sin interrupciones para resetearme.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Me ayudaría mucho que hoy tú gestiones la rutina de dormir.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Estoy saturada. Necesito que hoy tomes tú esta tarea.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“¿Podemos repartir esto? Yo hago A y tú haces B.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Necesito apoyo práctico, no solo ‘tranquila’. ¿Te encargas de ___?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hoy no puedo con todo. Elige por favor una tarea y hazte cargo completa.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Mañana necesito que cubras tú la mañana de 7:00 a 8:00.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Para estar bien, necesito que esta semana asumamos un reparto más claro.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+      </div>
+    </section>
+
+    <section class="section" data-group="carga">
+      <h3 class="section-title">2) Repartir carga mental (10)</h3>
+      <div class="scripts-grid">
+        <article class="script-item"><p class="script-text">“No necesito ayuda puntual; necesito corresponsabilidad estable.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Esta tarea no es ‘mía’: es de la casa. ¿Quién la toma desde hoy?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Voy a dejar de recordar todo. Necesito que te encargues de esto de principio a fin.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No puedo seguir coordinando sola. Hagamos una lista y repartimos hoy.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Prefiero menos promesas y más acciones concretas.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Si te encargas de esto, también incluye planificarlo, no solo ejecutarlo.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Necesito que anticipes, no que esperes a que te lo pida.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Voy a soltar esta tarea. A partir de ahora te corresponde a ti.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hagamos un check semanal de 10 minutos para ajustar cargas.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Me desgasta tener que dirigir todo. Necesito iniciativa compartida.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+      </div>
+    </section>
+
+    <section class="section" data-group="familia">
+      <h3 class="section-title">3) Pedir apoyo a familia/amigos (10)</h3>
+      <div class="scripts-grid">
+        <article class="script-item"><p class="script-text">“¿Puedes quedarte con [nombre] una hora esta semana? Lo necesito de verdad.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hoy me ayudaría mucho una comida hecha. ¿Podrías apoyarme con eso?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Necesito compañía, no soluciones. ¿Me escuchas 10 minutos?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Estoy al límite. ¿Podrías venir un rato esta tarde?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“¿Puedes hacer esta gestión por mí? Me quitarías mucha carga.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Gracias por querer ayudar. Lo que realmente necesito hoy es ___.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“¿Podemos organizar turnos de apoyo este mes?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No necesito consejo ahora, necesito descanso. ¿Me cubres una hora?”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Te agradezco si hoy te encargas de ___ sin que yo lo coordine.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Si puedes ayudarme con algo concreto, hoy sería esto: ___.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+      </div>
+    </section>
+
+    <section class="section" data-group="limites">
+      <h3 class="section-title">4) Poner límites sin culpa (10)</h3>
+      <div class="scripts-grid">
+        <article class="script-item"><p class="script-text">“Gracias por tu opinión; hemos decidido hacerlo así.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Ahora mismo no voy a hablar de este tema.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hoy no puedo comprometerme con eso.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No me viene bien. Si cambia, te aviso.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Prefiero no recibir consejos no pedidos sobre mi maternidad.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Entiendo tu punto, pero este límite lo voy a mantener.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No voy a justificar esta decisión. Es lo mejor para nosotros.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Ahora necesito respeto por este espacio/tiempo.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No es un buen momento para visitas. Te escribo cuando sí.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Decir que no también es cuidarme.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+      </div>
+    </section>
+
+    <section class="section" data-group="desborde">
+      <h3 class="section-title">5) En días de desborde (10)</h3>
+      <div class="scripts-grid">
+        <article class="script-item"><p class="script-text">“Estoy sobrepasada. Necesito una pausa de 10 minutos y luego continúo.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Ahora no puedo responder bien. Retomamos en 20 minutos.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Necesito bajar el tono para poder hablar y resolver.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hoy voy en versión mínima. Haré lo esencial y lo demás espera.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No estoy disponible ahora. Te escribo cuando pueda atender esto.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Estoy cansada emocionalmente; necesito menos estímulos por un rato.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Hoy no puedo con tareas extra. Me enfoco en lo básico.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Antes de seguir, necesito agua, respirar y ordenar una prioridad.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“No necesito perfección ahora; necesito apoyo real.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+        <article class="script-item"><p class="script-text">“Estoy haciendo lo posible. Si quieres ayudar, esto es lo que necesito: ___.”</p><div class="script-actions"><button class="copy-btn" type="button">Copiar</button></div></article>
+      </div>
+    </section>
+
+    <p class="footer-note">Tip: guarda i tuoi script preferiti nelle note del telefono per averli pronti subito.</p>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const scriptItems = Array.from(document.querySelectorAll('.script-item'));
+    const sections = Array.from(document.querySelectorAll('.section'));
+    const emptyState = document.getElementById('emptyState');
+
+    // Copia testo script
+    async function copyText(text, btn){
+      try{
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('ok');
+        setTimeout(() => {
+          btn.textContent = old;
+          btn.classList.remove('ok');
+        }, 1200);
+      }catch(e){
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+
+        const old = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('ok');
+        setTimeout(() => {
+          btn.textContent = old;
+          btn.classList.remove('ok');
+        }, 1200);
+      }
+    }
+
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const text = btn.closest('.script-item').querySelector('.script-text').innerText.trim();
+        copyText(text, btn);
+      });
+    });
+
+    // Ricerca live
+    function normalize(str){
+      return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function runFilter(){
+      const q = normalize(searchInput.value.trim());
+      let visibleCount = 0;
+
+      scriptItems.forEach((item) => {
+        const txt = normalize(item.innerText);
+        const show = !q || txt.includes(q);
+        item.style.display = show ? '' : 'none';
+        if(show) visibleCount++;
+      });
+
+      // Mostra/nasconde sezione intera se non ha item visibili
+      sections.forEach((sec) => {
+        const anyVisible = Array.from(sec.querySelectorAll('.script-item'))
+          .some(el => el.style.display !== 'none');
+        sec.style.display = anyVisible ? '' : 'none';
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', runFilter);
+  </script>
+</body>
+</html>

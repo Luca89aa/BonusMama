@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planner “Menos Carga Mental” (30 días) | Bonus Mamá</title>
+  <meta name="description" content="Planner compilable de 30 días para organizar prioridades con menos estrés, más calma y más claridad mental." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema:#F8F4EF;
+      --rosa:#EFD9D9;
+      --terracotta:#C9886B;
+      --salvia:#C9D6C5;
+      --antracite:#2D2A2A;
+      --white:#ffffff;
+      --line:#ddd6ce;
+      --ok:#2f6c4f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    .inner{ padding:16px 0 40px; }
+
+    .topbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      min-height:44px;
+      border:none;
+      border-radius:12px;
+      padding:0 14px;
+      background:var(--terracotta);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      font-size:.95rem;
+    }
+    .btn.secondary{
+      background:#fff;
+      color:var(--antracite);
+      border:1px solid rgba(45,42,42,.15);
+    }
+    .btn.soft{
+      background:var(--salvia);
+      color:var(--antracite);
+    }
+
+    .hero{
+      background:linear-gradient(180deg, rgba(239,217,217,.62), rgba(248,244,239,.94));
+      border:1px solid rgba(45,42,42,.08);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:12px;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:clamp(1.45rem,5.6vw,2.1rem);
+      line-height:1.2;
+    }
+    .hero p{ margin:0; color:rgba(45,42,42,.9); }
+
+    .card{
+      background:var(--white);
+      border:1px solid rgba(45,42,42,.1);
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(45,42,42,.05);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.1rem;
+      line-height:1.3;
+      color:var(--antracite);
+    }
+
+    .card h3{
+      margin:12px 0 8px;
+      font-size:.98rem;
+      line-height:1.3;
+    }
+
+    .muted{
+      color:rgba(45,42,42,.78);
+      font-size:.93rem;
+    }
+
+    .legend-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .pill{
+      border:1px solid rgba(45,42,42,.1);
+      border-radius:12px;
+      padding:10px;
+      background:#fff;
+    }
+    .pill strong{ display:block; margin-bottom:4px; }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .row-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+    }
+
+    .row-3{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    label{
+      display:block;
+      font-size:.86rem;
+      font-weight:700;
+      margin-bottom:4px;
+      color:rgba(45,42,42,.9);
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea{
+      width:100%;
+      min-height:44px;
+      border:1px solid rgba(45,42,42,.16);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      color:var(--antracite);
+      background:#fff;
+    }
+
+    textarea{
+      min-height:96px;
+      resize:vertical;
+      line-height:1.4;
+    }
+
+    .columns{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .col-box{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px;
+      background:#fff;
+    }
+
+    .col-box h4{
+      margin:0 0 6px;
+      font-size:.92rem;
+    }
+
+    .checks{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:6px;
+      margin:8px 0;
+    }
+
+    .check-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 0;
+    }
+
+    .check-item input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      margin:0;
+    }
+
+    .status{
+      margin-top:8px;
+      font-size:.85rem;
+      color:var(--ok);
+      display:none;
+      font-weight:700;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+
+    .day-select{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .anchor-list{
+      margin:0;
+      padding-left:20px;
+      line-height:1.5;
+    }
+
+    .anchor-list li{
+      margin-bottom:6px;
+      font-size:.95rem;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:rgba(45,42,42,.7);
+      font-size:.85rem;
+      margin-top:10px;
+    }
+
+    @media (min-width:768px){
+      .legend-grid{ grid-template-columns:1fr 1fr 1fr; }
+      .row-3{ grid-template-columns:repeat(3,1fr); }
+      .columns{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .topbar, .hide-print{ display:none !important; }
+      .card, .hero{
+        box-shadow:none !important;
+        border:1px solid #999 !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+      textarea, input, select{
+        border:1px solid #999 !important;
+        background:#fff !important;
+      }
+      .inner{ padding:0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+    <div class="topbar hide-print">
+      <a class="btn secondary" href="../index.html">← Volver a recursos</a>
+      <button id="saveBtn" class="btn soft" type="button">Guardar</button>
+      <button id="pdfBtn" class="btn" type="button">Descargar PDF</button>
+      <button id="resetBtn" class="btn secondary" type="button">Reiniciar día actual</button>
+    </div>
+
+    <section class="hero">
+      <h1>Planner “Menos Carga Mental” (30 días)</h1>
+      <p>Organiza prioridades con menos estrés, más calma y más claridad mental.</p>
+      <p class="muted" style="margin-top:6px;">Recurso exclusivo de No Estás Sola en la Maternidad.</p>
+    </section>
+
+    <section class="card">
+      <h2>CÓMO USAR ESTE PLANNER</h2>
+      <p class="muted">Este planner no está hecho para exigirte más.<br>Está hecho para ayudarte a pensar con claridad cuando tienes la mente saturada.</p>
+
+      <h3>Paso 1 (1 minuto): Descarga mental</h3>
+      <p class="muted">Escribe todo lo que tienes en la cabeza, sin ordenar.</p>
+
+      <h3>Paso 2 (2 minutos): Prioriza con el método 3 columnas</h3>
+      <ul class="muted" style="margin:0 0 0 18px;">
+        <li>Hoy sí (máx. 3 acciones)</li>
+        <li>Delego (1–2 acciones)</li>
+        <li>Puede esperar (2–3 acciones)</li>
+      </ul>
+
+      <h3>Paso 3 (1 minuto): Microcuidado</h3>
+      <p class="muted">Elige una acción de autocuidado de 5 minutos.</p>
+
+      <h3>Paso 4 (1 minuto): Cierre nocturno</h3>
+      <p class="muted">Reconoce lo que sí sostuviste hoy y suelta lo que no toca cargar.</p>
+
+      <p class="muted" style="margin-top:10px;"><strong>Nota:</strong> No busques perfección. Busca alivio, claridad y constancia.</p>
+    </section>
+
+    <section class="card">
+      <h2>LEYENDA RÁPIDA — Método “Menos Carga Mental”</h2>
+      <div class="legend-grid">
+        <div class="pill"><strong>HOY SÍ</strong>Solo lo esencial. Máximo 3 acciones.</div>
+        <div class="pill"><strong>DELEGO</strong>Lo que no necesitas cargar tú sola.</div>
+        <div class="pill"><strong>PUEDE ESPERAR</strong>No urgente hoy. Se agenda sin culpa.</div>
+      </div>
+      <p class="muted" style="margin-top:10px;"><strong>Mini regla diaria:</strong> Si todo es prioridad, nada es prioridad.</p>
+      <p class="muted"><strong>Frase ancla:</strong> Priorizar también es cuidar.</p>
+    </section>
+
+    <!-- TEMPLATE DIARIA -->
+    <section class="card" id="dailyCard">
+      <div class="section-title">
+        <h2 style="margin:0;">PLANTILLA DIARIA (DÍA 1–30)</h2>
+        <div class="day-select hide-print">
+          <label for="daySelect" style="margin:0;font-size:.85rem;">Ver día:</label>
+          <select id="daySelect" style="min-height:40px;width:auto;">
+            <!-- popolato da JS -->
+          </select>
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div>
+          <label>Día</label>
+          <input id="dayLabel" type="text" readonly />
+        </div>
+        <div>
+          <label for="fecha">Fecha</label>
+          <input id="fecha" type="date" />
+        </div>
+        <div>
+          <label for="energia">Energía hoy (0–10)</label>
+          <select id="energia"></select>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label for="sentir">¿Cómo me siento hoy? (1 palabra)</label>
+          <input id="sentir" type="text" placeholder="Ej: cansada, tranquila, sensible..." />
+        </div>
+      </div>
+
+      <h3>1) Descarga mental (1 minuto)</h3>
+      <textarea id="descarga" placeholder="Todo lo que tengo en la cabeza ahora mismo…"></textarea>
+
+      <h3>2) Mi prioridad real de hoy</h3>
+      <textarea id="prioridad" placeholder="Si hoy solo logro UNA cosa, será esta:"></textarea>
+
+      <h3>3) Método 3 columnas</h3>
+      <div class="columns">
+        <div class="col-box">
+          <h4>HOY SÍ (máx. 3)</h4>
+          <textarea id="hoySi" placeholder="1)&#10;2)&#10;3)"></textarea>
+        </div>
+        <div class="col-box">
+          <h4>DELEGO (1–2)</h4>
+          <textarea id="delego" placeholder="1)&#10;2)"></textarea>
+        </div>
+        <div class="col-box">
+          <h4>PUEDE ESPERAR (2–3)</h4>
+          <textarea id="esperar" placeholder="1)&#10;2)&#10;3)"></textarea>
+        </div>
+      </div>
+
+      <h3>4) Microcuidado de 5 minutos</h3>
+      <div class="checks">
+        <label class="check-item"><input id="mc1" type="checkbox"> Respirar lento</label>
+        <label class="check-item"><input id="mc2" type="checkbox"> Beber agua sin prisa</label>
+        <label class="check-item"><input id="mc3" type="checkbox"> Estirar cuerpo</label>
+        <label class="check-item"><input id="mc4" type="checkbox"> Pausa sin móvil</label>
+        <label class="check-item"><input id="mc5" type="checkbox"> Salir al aire 5 min</label>
+      </div>
+      <div>
+        <label for="mcOtro">Otro</label>
+        <input id="mcOtro" type="text" placeholder="Escribe tu microcuidado..." />
+      </div>
+
+      <h3>5) Frase ancla del día</h3>
+      <input id="fraseDia" type="text" placeholder="Escribe una frase que te sostenga hoy..." />
+
+      <h3>6) Cierre nocturno (2 minutos)</h3>
+      <label for="sostuve">Hoy sí sostuve:</label>
+      <textarea id="sostuve"></textarea>
+
+      <label for="suelto">Hoy suelto para mañana:</label>
+      <textarea id="suelto"></textarea>
+
+      <div style="margin-top:8px;max-width:260px;">
+        <label for="cargaAhora">Carga mental ahora (0–10)</label>
+        <select id="cargaAhora"></select>
+      </div>
+
+      <p id="saveStatus" class="status">✅ Guardado</p>
+    </section>
+
+    <!-- REVISIÓN SEMANAL -->
+    <section class="card" id="weeklyCard">
+      <div class="section-title">
+        <h2 style="margin:0;">REVISIÓN SEMANAL (SEMANA 1–4)</h2>
+        <div class="day-select hide-print">
+          <label for="weekSelect" style="margin:0;font-size:.85rem;">Semana:</label>
+          <select id="weekSelect" style="min-height:40px;width:auto;">
+            <option value="1">Semana 1</option>
+            <option value="2">Semana 2</option>
+            <option value="3">Semana 3</option>
+            <option value="4">Semana 4</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="semDreno">Esta semana me drenó:</label>
+      <textarea id="semDreno"></textarea>
+
+      <label for="semSostuvo">Esta semana me sostuvo:</label>
+      <textarea id="semSostuvo"></textarea>
+
+      <label for="semDelegar">Lo que necesito delegar mejor:</label>
+      <textarea id="semDelegar"></textarea>
+
+      <label for="semLimite">Un límite que voy a proteger:</label>
+      <textarea id="semLimite"></textarea>
+
+      <label for="semEnfoque">Mi enfoque realista para la próxima semana:</label>
+      <textarea id="semEnfoque"></textarea>
+
+      <h3>Check emocional (0–10)</h3>
+      <div class="row-3">
+        <div><label>Ansiedad</label><select id="ansiedad"></select></div>
+        <div><label>Culpa</label><select id="culpa"></select></div>
+        <div><label>Energía</label><select id="energiaSem"></select></div>
+      </div>
+      <div class="row-2" style="margin-top:8px;">
+        <div><label>Calma</label><select id="calma"></select></div>
+        <div><label>Sensación de apoyo</label><select id="apoyo"></select></div>
+      </div>
+
+      <label for="semFrase" style="margin-top:8px;">Frase de cierre:</label>
+      <input id="semFrase" type="text" value="Estoy avanzando aunque no sea perfecto." />
+
+      <p id="saveStatusWeek" class="status">✅ Guardado</p>
+    </section>
+
+    <!-- CIERRE 30 DÍAS -->
+    <section class="card" id="closeCard">
+      <h2>CIERRE DE 30 DÍAS</h2>
+      <p class="muted"><strong>Cierre de 30 días: lo que cambió en mí</strong></p>
+
+      <label for="c1">1) Lo más importante que aprendí sobre mi carga mental:</label>
+      <textarea id="c1"></textarea>
+
+      <label for="c2">2) Lo que hoy hago diferente:</label>
+      <textarea id="c2"></textarea>
+
+      <label for="c3">3) El hábito que quiero mantener:</label>
+      <textarea id="c3"></textarea>
+
+      <label for="c4">4) Mi compromiso para los próximos 30 días:</label>
+      <textarea id="c4"></textarea>
+
+      <label for="cFrase">Mi frase ancla final:</label>
+      <textarea id="cFrase">No necesito hacerlo todo para hacerlo bien.
+Merezco una maternidad con más apoyo, más calma y menos culpa.</textarea>
+
+      <p id="saveStatusClose" class="status">✅ Guardado</p>
+    </section>
+
+    <!-- 30 FRASES -->
+    <section class="card">
+      <h2>30 FRASES ANCLA (UNA POR DÍA)</h2>
+      <ol class="anchor-list">
+        <li>Hoy no necesito hacerlo todo, solo lo esencial.</li>
+        <li>Priorizar también es cuidar.</li>
+        <li>No estoy fallando: estoy sosteniendo mucho.</li>
+        <li>Mi descanso también es una prioridad.</li>
+        <li>Hecho es mejor que perfecto.</li>
+        <li>Pedir ayuda también es fortaleza.</li>
+        <li>Mi valor no depende de una lista completada.</li>
+        <li>Hoy elijo claridad, no caos.</li>
+        <li>Soltar también es avanzar.</li>
+        <li>Cuidarme mejora todo lo demás.</li>
+        <li>Un paso pequeño también cuenta.</li>
+        <li>No todo es urgente.</li>
+        <li>Mi calma merece espacio.</li>
+        <li>Delegar no es fallar.</li>
+        <li>No tengo que demostrarlo todo.</li>
+        <li>Mi energía es un recurso valioso.</li>
+        <li>Hoy elijo un ritmo posible.</li>
+        <li>No necesito permiso para cuidarme.</li>
+        <li>Puedo decir “no” sin culpa.</li>
+        <li>Lo importante primero, lo demás después.</li>
+        <li>Estoy aprendiendo, no compitiendo.</li>
+        <li>Mi maternidad no necesita perfección.</li>
+        <li>Hoy me hablo con respeto.</li>
+        <li>Mi bienestar también importa.</li>
+        <li>No todo depende de mí.</li>
+        <li>Respiro, priorizo y avanzo.</li>
+        <li>Merezco apoyo real.</li>
+        <li>Mi casa puede estar en proceso y yo también.</li>
+        <li>No estoy sola en esto.</li>
+        <li>Hoy reconozco todo lo que sí sostuve.</li>
+      </ol>
+    </section>
+
+    <p class="footer-note">El contenido se guarda en este dispositivo. Para PDF: botón “Descargar PDF”.</p>
+  </main>
+
+  <script>
+    const daySelect = document.getElementById('daySelect');
+    const weekSelect = document.getElementById('weekSelect');
+    const dayLabel = document.getElementById('dayLabel');
+
+    const saveBtn = document.getElementById('saveBtn');
+    const pdfBtn = document.getElementById('pdfBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const saveStatus = document.getElementById('saveStatus');
+    const saveStatusWeek = document.getElementById('saveStatusWeek');
+    const saveStatusClose = document.getElementById('saveStatusClose');
+
+    const dailyFields = [
+      'fecha','energia','sentir','descarga','prioridad','hoySi','delego','esperar',
+      'mc1','mc2','mc3','mc4','mc5','mcOtro','fraseDia','sostuve','suelto','cargaAhora'
+    ];
+
+    const weekFields = [
+      'semDreno','semSostuvo','semDelegar','semLimite','semEnfoque',
+      'ansiedad','culpa','energiaSem','calma','apoyo','semFrase'
+    ];
+
+    const closeFields = ['c1','c2','c3','c4','cFrase'];
+
+    function fill0to10(selectId){
+      const sel = document.getElementById(selectId);
+      sel.innerHTML = '';
+      const ph = document.createElement('option');
+      ph.value = '';
+      ph.textContent = 'Selecciona (0–10)';
+      sel.appendChild(ph);
+      for(let i=0;i<=10;i++){
+        const op = document.createElement('option');
+        op.value = String(i);
+        op.textContent = String(i);
+        sel.appendChild(op);
+      }
+    }
+
+    ['energia','cargaAhora','ansiedad','culpa','energiaSem','calma','apoyo'].forEach(fill0to10);
+
+    // Popola select giorni
+    for(let d=1; d<=30; d++){
+      const op = document.createElement('option');
+      op.value = String(d);
+      op.textContent = `Día ${d}`;
+      daySelect.appendChild(op);
+    }
+
+    function keyDaily(day){ return `planner_menosCarga_daily_${day}`; }
+    function keyWeek(week){ return `planner_menosCarga_week_${week}`; }
+    const keyClose = 'planner_menosCarga_close';
+
+    function showSaved(el){
+      el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 1400);
+    }
+
+    function getFieldValue(id){
+      const el = document.getElementById(id);
+      if(!el) return '';
+      if(el.type === 'checkbox') return el.checked;
+      return el.value ?? '';
+    }
+
+    function setFieldValue(id, val){
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(el.type === 'checkbox'){
+        el.checked = Boolean(val);
+      } else {
+        el.value = val ?? '';
+      }
+    }
+
+    function saveDaily(){
+      const day = daySelect.value || '1';
+      const data = {};
+      dailyFields.forEach(id => data[id] = getFieldValue(id));
+      localStorage.setItem(keyDaily(day), JSON.stringify(data));
+      showSaved(saveStatus);
+    }
+
+    function loadDaily(){
+      const day = daySelect.value || '1';
+      dayLabel.value = `${day} / 30`;
+      const raw = localStorage.getItem(keyDaily(day));
+      const data = raw ? JSON.parse(raw) : {};
+      dailyFields.forEach(id => setFieldValue(id, data[id]));
+    }
+
+    function resetDaily(){
+      const day = daySelect.value || '1';
+      localStorage.removeItem(keyDaily(day));
+      loadDaily();
+    }
+
+    function saveWeek(){
+      const week = weekSelect.value || '1';
+      const data = {};
+      weekFields.forEach(id => data[id] = getFieldValue(id));
+      localStorage.setItem(keyWeek(week), JSON.stringify(data));
+      showSaved(saveStatusWeek);
+    }
+
+    function loadWeek(){
+      const week = weekSelect.value || '1';
+      const raw = localStorage.getItem(keyWeek(week));
+      const data = raw ? JSON.parse(raw) : {};
+      weekFields.forEach(id => setFieldValue(id, data[id]));
+      if(!data.semFrase){
+        document.getElementById('semFrase').value = 'Estoy avanzando aunque no sea perfecto.';
+      }
+    }
+
+    function saveClose(){
+      const data = {};
+      closeFields.forEach(id => data[id] = getFieldValue(id));
+      localStorage.setItem(keyClose, JSON.stringify(data));
+      showSaved(saveStatusClose);
+    }
+
+    function loadClose(){
+      const raw = localStorage.getItem(keyClose);
+      const data = raw ? JSON.parse(raw) : {};
+      closeFields.forEach(id => setFieldValue(id, data[id]));
+      if(!data.cFrase){
+        document.getElementById('cFrase').value =
+`No necesito hacerlo todo para hacerlo bien.
+Merezco una maternidad con más apoyo, más calma y menos culpa.`;
+      }
+    }
+
+    // Auto-save su input/change
+    function bindAutosave(ids, fnSave){
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        const evt = (el.tagName === 'SELECT' || el.type === 'checkbox' || el.type === 'date') ? 'change' : 'input';
+        el.addEventListener(evt, fnSave);
+      });
+    }
+
+    bindAutosave(dailyFields, saveDaily);
+    bindAutosave(weekFields, saveWeek);
+    bindAutosave(closeFields, saveClose);
+
+    daySelect.addEventListener('change', loadDaily);
+    weekSelect.addEventListener('change', loadWeek);
+
+    saveBtn.addEventListener('click', () => {
+      saveDaily();
+      saveWeek();
+      saveClose();
+    });
+
+    pdfBtn.addEventListener('click', () => {
+      // Include i valori correnti prima di stampare
+      saveDaily(); saveWeek(); saveClose();
+      window.print();
+    });
+
+    resetBtn.addEventListener('click', resetDaily);
+
+    // init
+    daySelect.value = '1';
+    weekSelect.value = '1';
+    loadDaily();
+    loadWeek();
+    loadClose();
+  </script>
+</body>
+</html>

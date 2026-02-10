@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit SOS 5 Minutos | Bonus Mamá</title>
+  <meta name="description" content="15 protocolos de 5 minutos para regular ansiedad, culpa, saturación y carga mental en la maternidad real." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema: #F8F4EF;
+      --rosa: #EFD9D9;
+      --terracotta: #C9886B;
+      --salvia: #C9D6C5;
+      --antracite: #2D2A2A;
+      --white: #ffffff;
+    }
+
+    .inner {
+      padding: 16px 0 34px;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--antracite);
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: #fff;
+      border: 1px solid rgba(45,42,42,.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .page-hero {
+      background: linear-gradient(180deg, rgba(239,217,217,.6), rgba(248,244,239,.9));
+      border: 1px solid rgba(45,42,42,.08);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.45rem, 5.2vw, 2.1rem);
+      line-height: 1.2;
+    }
+
+    .page-hero p {
+      margin: 0;
+      color: rgba(45,42,42,.85);
+      font-size: 0.98rem;
+    }
+
+    .sticky-actions {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      margin: 10px 0 14px;
+    }
+
+    .sticky-actions .box {
+      background: rgba(255,255,255,.93);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(45,42,42,.12);
+      border-radius: 14px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .sticky-actions label {
+      font-size: .86rem;
+      font-weight: 600;
+      color: rgba(45,42,42,.9);
+    }
+
+    .sticky-actions select,
+    .sticky-actions button {
+      min-height: 44px;
+      border-radius: 10px;
+      border: 1px solid rgba(45,42,42,.18);
+      font-size: .95rem;
+    }
+
+    .sticky-actions select {
+      padding: 0 10px;
+      background: #fff;
+      color: var(--antracite);
+      width: 100%;
+    }
+
+    .sticky-actions button {
+      padding: 0 14px;
+      background: var(--terracotta);
+      color: #fff;
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .protocol-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .protocol-card {
+      background: var(--white);
+      border: 1px solid rgba(45,42,42,.1);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 4px 14px rgba(45,42,42,.06);
+      scroll-margin-top: 84px;
+    }
+
+    .protocol-title {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      color: var(--antracite);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      font-weight: 700;
+      color: #6f4e42;
+      background: rgba(201,136,107,.13);
+      border: 1px solid rgba(201,136,107,.3);
+      border-radius: 999px;
+      padding: 5px 9px;
+    }
+
+    .section-label {
+      margin: 10px 0 4px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      color: rgba(45,42,42,.75);
+    }
+
+    .text {
+      margin: 0;
+      color: rgba(45,42,42,.95);
+      font-size: .95rem;
+    }
+
+    .steps {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .steps li {
+      margin-bottom: 6px;
+      font-size: .95rem;
+      color: rgba(45,42,42,.95);
+    }
+
+    .anchor {
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(239,217,217,.5), rgba(201,214,197,.45));
+      border: 1px solid rgba(45,42,42,.08);
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .mini-check {
+      margin-top: 12px;
+      border-top: 1px dashed rgba(45,42,42,.2);
+      padding-top: 10px;
+    }
+
+    .mini-check h4 {
+      margin: 0 0 8px;
+      font-size: .9rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .mini-grid label {
+      font-size: .84rem;
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(45,42,42,.85);
+      font-weight: 600;
+    }
+
+    .mini-grid select {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 10px;
+      border: 1px solid rgba(45,42,42,.18);
+      padding: 0 10px;
+      font-size: .95rem;
+      background: #fff;
+    }
+
+    .mini-grid input[readonly] {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 10px;
+      border: 1px solid rgba(45,42,42,.18);
+      padding: 0 10px;
+      font-size: .95rem;
+      background: #f3f3f3;
+      color: var(--antracite);
+      font-weight: 700;
+    }
+
+    .save-row {
+      margin-top: 9px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .save-btn {
+      min-height: 40px;
+      border: none;
+      border-radius: 10px;
+      padding: 0 12px;
+      background: var(--salvia);
+      color: var(--antracite);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .saved-msg {
+      font-size: .82rem;
+      color: #2f6c4f;
+      font-weight: 600;
+      display: none;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      font-size: .85rem;
+      color: rgba(45,42,42,.7);
+      text-align: center;
+    }
+
+    .protocol-card, .save-btn, .sticky-actions button, .sticky-actions select, .mini-grid select {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    @media (min-width: 800px){
+      .protocol-list{
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (min-width: 1120px){
+      .protocol-list{
+        grid-template-columns: repeat(3, minmax(0,1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+    <div class="top-nav">
+      <a class="back-link" href="../index.html">← Volver a recursos</a>
+    </div>
+
+    <section class="page-hero">
+      <h1>Kit SOS 5 Minutos</h1>
+      <p>
+        Protocolos breves y prácticos para momentos de sobrecarga emocional.
+        Elige el que más encaja con cómo te sientes hoy.
+      </p>
+    </section>
+
+    <div class="sticky-actions">
+      <div class="box">
+        <div>
+          <label for="jumpProtocol">Ir rápido a un protocolo</label>
+          <select id="jumpProtocol">
+            <option value="">Selecciona (1–15)</option>
+            <option value="p1">1 — Estoy al límite</option>
+            <option value="p2">2 — Ansiedad en el pecho</option>
+            <option value="p3">3 — Culpa por no llegar a todo</option>
+            <option value="p4">4 — Estoy por explotar</option>
+            <option value="p5">5 — Me siento sola</option>
+            <option value="p6">6 — No puedo parar la mente</option>
+            <option value="p7">7 — Comparación con otras madres</option>
+            <option value="p8">8 — Carga mental saturada</option>
+            <option value="p9">9 — Discusión con la pareja</option>
+            <option value="p10">10 — Mi hijo está desbordado y yo también</option>
+            <option value="p11">11 — Día gris, sin energía</option>
+            <option value="p12">12 — Desorden en casa = culpa</option>
+            <option value="p13">13 — Miedo a estar haciéndolo mal</option>
+            <option value="p14">14 — No sé qué priorizar</option>
+            <option value="p15">15 — Cierre nocturno para dormir mejor</option>
+          </select>
+        </div>
+        <button type="button" id="goProtocol">Ir</button>
+      </div>
+    </div>
+
+    <section class="protocol-list">
+
+      <!-- 1 -->
+      <article class="protocol-card" id="p1">
+        <span class="tag">Protocolo 1</span>
+        <h2 class="protocol-title">Estoy al límite</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando sientes que no puedes más y todo te supera al mismo tiempo.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Estoy sobrepasada, no rota. Puedo bajar una marcha.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Para. Apoya ambos pies en el suelo.</li>
+          <li>Min 1:00–2:30 → Inhala 4 segundos, exhala 6 segundos (8 respiraciones).</li>
+          <li>Min 2:30–3:30 → Nombra 3 cosas que ves, 2 que oyes y 1 sensación corporal.</li>
+          <li>Min 3:30–4:30 → Pregunta: “¿Qué sí es esencial en la próxima hora?”</li>
+          <li>Min 4:30–5:00 → Elige 1 acción mínima y concreta.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “No necesito resolverlo todo ahora. Solo el siguiente paso.”</div>
+        <div class="mini-check" data-key="p1">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="protocol-card" id="p2">
+        <span class="tag">Protocolo 2</span>
+        <h2 class="protocol-title">Ansiedad en el pecho</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando notas opresión, respiración corta o mente acelerada.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Mi cuerpo está en alerta. Puedo ayudarlo a volver.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Suelta hombros y mandíbula.</li>
+          <li>Min 1:00–3:00 → Respiración 4–6 (inhala 4, exhala 6).</li>
+          <li>Min 3:00–4:00 → Mano en el pecho: “Ahora mismo estoy a salvo.”</li>
+          <li>Min 4:00–5:00 → Bebe agua despacio, 5 sorbos conscientes.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Puedo sentir ansiedad sin dejar que me dirija.”</div>
+        <div class="mini-check" data-key="p2">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="protocol-card" id="p3">
+        <span class="tag">Protocolo 3</span>
+        <h2 class="protocol-title">Culpa por no llegar a todo</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando tu mente solo ve lo que faltó.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“La culpa habla fuerte, pero no siempre dice la verdad.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:30 → Escribe 3 cosas: “Hoy sí hice…”.</li>
+          <li>Min 1:30–3:00 → Escribe 2 cosas: “Hoy puede esperar…”.</li>
+          <li>Min 3:00–4:00 → 5 respiraciones lentas con mano en el pecho.</li>
+          <li>Min 4:00–5:00 → Elige 1 cierre realista para hoy.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Hoy hice suficiente con los recursos que tenía.”</div>
+        <div class="mini-check" data-key="p3">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="protocol-card" id="p4">
+        <span class="tag">Protocolo 4</span>
+        <h2 class="protocol-title">Estoy por explotar</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando sientes irritación alta y miedo de reaccionar mal.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Pausar no es fallar. Es prevenir daño.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Aléjate 2 metros del estímulo si puedes.</li>
+          <li>Min 1:00–2:00 → Lava tus manos con agua fresca lentamente.</li>
+          <li>Min 2:00–3:30 → Exhala más largo que la inhalación (10 ciclos).</li>
+          <li>Min 3:30–4:30 → Repite: “Bajo una marcha.”</li>
+          <li>Min 4:30–5:00 → Vuelve con una frase breve y calmada.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Regularme primero también es cuidar.”</div>
+        <div class="mini-check" data-key="p4">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="protocol-card" id="p5">
+        <span class="tag">Protocolo 5</span>
+        <h2 class="protocol-title">Me siento sola</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando te sientes aislada aunque estés rodeada de gente.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Sentirme sola no significa que esté sola.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Nombra lo que sientes en una palabra.</li>
+          <li>Min 1:00–2:00 → Escribe: “Hoy necesito…”</li>
+          <li>Min 2:00–3:30 → Elige una persona segura.</li>
+          <li>Min 3:30–5:00 → Envía mensaje: “¿Tienes 10 minutos para escucharme hoy?”</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Pedir presencia también es valentía.”</div>
+        <div class="mini-check" data-key="p5">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="protocol-card" id="p6">
+        <span class="tag">Protocolo 6</span>
+        <h2 class="protocol-title">No puedo parar la mente</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando hay sobrepensamiento y bucles mentales.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“No tengo que resolver todo en mi cabeza ahora.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–2:00 → Descarga mental: escribe todo sin ordenar.</li>
+          <li>Min 2:00–3:00 → Marca con A (hoy), B (semana), C (puede esperar).</li>
+          <li>Min 3:00–4:00 → Elige solo 1 tarea A.</li>
+          <li>Min 4:00–5:00 → Haz el primer paso de esa tarea.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Menos vueltas, más un paso.”</div>
+        <div class="mini-check" data-key="p6">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="protocol-card" id="p7">
+        <span class="tag">Protocolo 7</span>
+        <h2 class="protocol-title">Comparación con otras madres</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando te comparas y sientes que vas tarde o mal.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Estoy viendo un fragmento, no la historia completa.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:30 → Cierra redes o silencia cuentas gatillo.</li>
+          <li>Min 1:30–3:00 → Escribe 3 fortalezas de tu maternidad real.</li>
+          <li>Min 3:00–4:00 → Completa: “En mi familia hoy priorizamos…”.</li>
+          <li>Min 4:00–5:00 → Elige una acción coherente con esa prioridad.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Mi ritmo también es válido.”</div>
+        <div class="mini-check" data-key="p7">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="protocol-card" id="p8">
+        <span class="tag">Protocolo 8</span>
+        <h2 class="protocol-title">Carga mental saturada</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando sientes demasiadas decisiones y pendientes a la vez.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“No todo merece mi energía al mismo nivel.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:30 → Lista rápida de pendientes (sin filtro).</li>
+          <li>Min 1:30–3:00 → Señala 1 delegable y 1 posponible.</li>
+          <li>Min 3:00–4:00 → Decide la única prioridad de hoy.</li>
+          <li>Min 4:00–5:00 → Comunica una delegación concreta.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Priorizar no es abandonar.”</div>
+        <div class="mini-check" data-key="p8">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="protocol-card" id="p9">
+        <span class="tag">Protocolo 9</span>
+        <h2 class="protocol-title">Discusión con la pareja</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando hay tensión, reproches o malentendidos.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Quiero solución, no ganar.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Baja tono y ritmo de voz.</li>
+          <li>Min 1:00–2:30 → Formula en primera persona: “Yo necesito…”.</li>
+          <li>Min 2:30–3:30 → Pide 1 acción específica con horario.</li>
+          <li>Min 3:30–5:00 → Acordad una revisión breve (hoy/noche).</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Hablar claro reduce carga.”</div>
+        <div class="mini-check" data-key="p9">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="protocol-card" id="p10">
+        <span class="tag">Protocolo 10</span>
+        <h2 class="protocol-title">Mi hijo está desbordado y yo también</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando ambos están activados y te cuesta sostener la situación.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Primero regulo, luego guío.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Baja tu volumen y tu velocidad.</li>
+          <li>Min 1:00–2:00 → Frase de validación: “Veo que te cuesta.”</li>
+          <li>Min 2:00–3:30 → Respirad juntos 5 ciclos (si es posible).</li>
+          <li>Min 3:30–4:30 → Ofrece 2 opciones simples y cerradas.</li>
+          <li>Min 4:30–5:00 → Elige una y acompaña sin sermón.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Conexión antes que corrección.”</div>
+        <div class="mini-check" data-key="p10">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="protocol-card" id="p11">
+        <span class="tag">Protocolo 11</span>
+        <h2 class="protocol-title">Día gris, sin energía</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando no tienes motivación y todo cuesta el doble.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“No necesito ganas para empezar mínimo.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Bebe agua y abre una ventana.</li>
+          <li>Min 1:00–2:30 → Estira cuello, hombros y espalda.</li>
+          <li>Min 2:30–3:30 → Elige 1 tarea de 5 minutos.</li>
+          <li>Min 3:30–5:00 → Hazla al 70%, sin perfeccionismo.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Pequeño también cuenta.”</div>
+        <div class="mini-check" data-key="p11">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="protocol-card" id="p12">
+        <span class="tag">Protocolo 12</span>
+        <h2 class="protocol-title">Desorden en casa = culpa</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando el caos visual te hace sentir que estás fallando.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“El desorden de hoy no define mi valor.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:00 → Elige una sola zona pequeña.</li>
+          <li>Min 1:00–4:00 → Orden rápido: tirar, guardar, limpiar superficie.</li>
+          <li>Min 4:00–5:00 → Detente aunque falte; reconoce el avance.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Funcional es mejor que perfecto.”</div>
+        <div class="mini-check" data-key="p12">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="protocol-card" id="p13">
+        <span class="tag">Protocolo 13</span>
+        <h2 class="protocol-title">Miedo a estar haciéndolo mal</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando dudas de ti y de tus decisiones como madre.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Dudar no significa fallar.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–2:00 → Escribe 3 cosas que hoy sí hiciste bien.</li>
+          <li>Min 2:00–3:00 → Escribe 1 ajuste pequeño para mañana.</li>
+          <li>Min 3:00–4:00 → Repite: “Estoy aprendiendo mientras cuido.”</li>
+          <li>Min 4:00–5:00 → Guarda la nota para releerla en días difíciles.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “No necesito perfección para ser buena madre.”</div>
+        <div class="mini-check" data-key="p13">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="protocol-card" id="p14">
+        <span class="tag">Protocolo 14</span>
+        <h2 class="protocol-title">No sé qué priorizar</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando todo parece importante y te bloqueas.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Si todo es prioridad, nada lo es.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:30 → Escribe todo lo pendiente.</li>
+          <li>Min 1:30–2:30 → Marca 1 esencial de hoy.</li>
+          <li>Min 2:30–3:30 → Elige 1 cosa que puede esperar.</li>
+          <li>Min 3:30–5:00 → Da el primer paso del esencial.</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Una prioridad clara trae calma.”</div>
+        <div class="mini-check" data-key="p14">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="protocol-card" id="p15">
+        <span class="tag">Protocolo 15</span>
+        <h2 class="protocol-title">Cierre nocturno para dormir mejor</h2>
+        <p class="section-label">Situación</p>
+        <p class="text">Cuando llegas a la noche con mente activa y tensión acumulada.</p>
+        <p class="section-label">Lo que te dices ahora</p>
+        <p class="text">“Puedo cerrar el día sin resolverlo todo.”</p>
+        <p class="section-label">Acción 5 minutos</p>
+        <ul class="steps">
+          <li>Min 0:00–1:30 → Escribe 3 “cierres” del día (sí hice…).</li>
+          <li>Min 1:30–2:30 → Escribe 1 pendiente para mañana (solo uno).</li>
+          <li>Min 2:30–4:00 → Respiración lenta 4–6.</li>
+          <li>Min 4:00–5:00 → Frase final: “Por hoy, es suficiente.”</li>
+        </ul>
+        <div class="anchor">Frase ancla: “Descansar también es avanzar.”</div>
+        <div class="mini-check" data-key="p15">
+          <h4>Mini check 0–10</h4>
+          <div class="mini-grid">
+            <div><label>Tu voto (1–10)</label><select data-field="before"></select></div>
+            <div><label>Referencia</label><input data-field="fixed10" type="text" value="10" readonly></div>
+          </div>
+          <div class="save-row"><button class="save-btn" type="button">Guardar</button><span class="saved-msg">✅ Guardado</span></div>
+        </div>
+      </article>
+
+    </section>
+
+    <p class="footer-note">
+      Tu voto se guarda en este dispositivo (localmente).
+    </p>
+  </main>
+
+  <script>
+    // Popola i select 1..10 (solo campo compilabile)
+    const selects = document.querySelectorAll('.mini-check select[data-field="before"]');
+    selects.forEach((sel) => {
+      const placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = 'Selecciona (1–10)';
+      sel.appendChild(placeholder);
+
+      for (let i = 1; i <= 10; i++) {
+        const op = document.createElement('option');
+        op.value = String(i);
+        op.textContent = String(i);
+        sel.appendChild(op);
+      }
+    });
+
+    // Salvataggio locale del solo voto utente
+    document.querySelectorAll('.mini-check').forEach((block) => {
+      const key = block.dataset.key;
+      const before = block.querySelector('select[data-field="before"]');
+      const btn = block.querySelector('.save-btn');
+      const msg = block.querySelector('.saved-msg');
+
+      const saved = localStorage.getItem('bonusMama_' + key);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          before.value = data.before ?? '';
+        } catch (e) {}
+      }
+
+      btn.addEventListener('click', () => {
+        const data = { before: before.value || '', fixed: 10 };
+        localStorage.setItem('bonusMama_' + key, JSON.stringify(data));
+        msg.style.display = 'inline';
+        setTimeout(() => (msg.style.display = 'none'), 1400);
+      });
+    });
+
+    // Jump menu
+    const jumpSel = document.getElementById('jumpProtocol');
+    const goBtn = document.getElementById('goProtocol');
+
+    function goToSelected() {
+      const id = jumpSel.value;
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    goBtn.addEventListener('click', goToSelected);
+    jumpSel.addEventListener('change', goToSelected);
+  </script>
+</body>
+</html>

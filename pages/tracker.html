@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracker de Progreso Emocional (8 semanas) | Bonus Mamá</title>
+  <meta name="description" content="Visualiza tus pequeños progresos reales, semana a semana." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema:#F8F4EF;
+      --rosa:#EFD9D9;
+      --terracotta:#C9886B;
+      --salvia:#C9D6C5;
+      --antracite:#2D2A2A;
+      --white:#fff;
+      --line:rgba(45,42,42,.14);
+      --ok:#2f6c4f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--crema);
+      color:var(--antracite);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .container{
+      width:min(1050px,92vw);
+      margin:0 auto;
+    }
+
+    .inner{
+      padding:16px 0 40px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:0 14px;
+      background:#fff;
+      color:var(--antracite);
+      font-weight:700;
+      font-size:.92rem;
+      text-decoration:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn.primary{
+      background:var(--terracotta);
+      border-color:transparent;
+      color:#fff;
+    }
+
+    .btn.soft{
+      background:var(--salvia);
+      border-color:transparent;
+      color:var(--antracite);
+    }
+
+    .hero{
+      background:linear-gradient(180deg, rgba(239,217,217,.66), rgba(248,244,239,.95));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:12px;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size:clamp(1.45rem, 5.6vw, 2.1rem);
+      line-height:1.2;
+      font-family:"Playfair Display", Georgia, serif;
+    }
+
+    .hero p{
+      margin:0;
+      line-height:1.45;
+      color:rgba(45,42,42,.9);
+      font-size:.96rem;
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(45,42,42,.05);
+      break-inside:avoid;
+      page-break-inside:avoid;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.1rem;
+      line-height:1.3;
+    }
+
+    .card h3{
+      margin:12px 0 8px;
+      font-size:1rem;
+      line-height:1.3;
+    }
+
+    .muted{
+      color:rgba(45,42,42,.8);
+      line-height:1.45;
+      font-size:.95rem;
+    }
+
+    ul.clean{
+      margin:8px 0 0 18px;
+      padding:0;
+      line-height:1.45;
+    }
+    ul.clean li{ margin-bottom:6px; }
+
+    .mini-note{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px dashed var(--line);
+      background:rgba(201,214,197,.35);
+      font-size:.92rem;
+      line-height:1.4;
+    }
+
+    .section-title{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:8px;
+    }
+
+    .section-title h2{
+      margin:0;
+    }
+
+    label{
+      display:block;
+      font-size:.85rem;
+      font-weight:700;
+      margin-bottom:4px;
+      color:rgba(45,42,42,.95);
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea{
+      width:100%;
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      color:var(--antracite);
+      background:#fff;
+    }
+
+    textarea{
+      min-height:90px;
+      resize:vertical;
+      line-height:1.4;
+    }
+
+    .row-2{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .row-3{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .grid-ind{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .ind-box{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px;
+      background:#fff;
+    }
+
+    .ind-box .label-top{
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:6px;
+      line-height:1.35;
+    }
+
+    .week-picker{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .quick-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .quick-item{
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:8px;
+      background:#fff;
+    }
+
+    .quick-item label{
+      margin-bottom:2px;
+      font-size:.82rem;
+    }
+
+    .quick-item input{
+      min-height:40px;
+    }
+
+    .status{
+      margin-top:8px;
+      color:var(--ok);
+      font-size:.85rem;
+      font-weight:700;
+      display:none;
+    }
+
+    .anchors{
+      margin:0;
+      padding-left:20px;
+      line-height:1.5;
+    }
+    .anchors li{ margin-bottom:6px; }
+
+    .footer-note{
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+
+    @media (min-width:760px){
+      .row-2{ grid-template-columns:1fr 1fr; }
+      .row-3{ grid-template-columns:repeat(3,1fr); }
+      .grid-ind{ grid-template-columns:1fr 1fr; }
+      .quick-grid{ grid-template-columns:repeat(4,1fr); }
+    }
+
+    @media (min-width:1080px){
+      .grid-ind{ grid-template-columns:repeat(4,1fr); }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .topbar, .hide-print{ display:none !important; }
+      .card, .hero{
+        box-shadow:none !important;
+        border:1px solid #999 !important;
+      }
+      input, textarea, select{
+        border:1px solid #999 !important;
+        background:#fff !important;
+      }
+      .container{ width:100%; padding:0 9mm; }
+      .inner{ padding:0; }
+      @page { size:A4; margin:12mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+
+    <div class="topbar hide-print">
+      <a class="btn" href="../index.html">← Volver a recursos</a>
+      <button id="saveBtn" class="btn soft" type="button">Guardar</button>
+      <button id="pdfBtn" class="btn primary" type="button">Descargar PDF</button>
+      <button id="resetWeekBtn" class="btn" type="button">Reiniciar semana actual</button>
+    </div>
+
+    <!-- PORTADA -->
+    <section class="hero">
+      <h1>Tracker de Progreso Emocional (8 semanas)</h1>
+      <p>Visualiza tus pequeños progresos reales, semana a semana.</p>
+      <p style="margin-top:6px;">Recurso exclusivo de No Estás Sola en la Maternidad.</p>
+    </section>
+
+    <!-- CÓMO USAR -->
+    <section class="card">
+      <h2>CÓMO USAR ESTE TRACKER</h2>
+      <p class="muted">
+        Este tracker no es para exigirte más.<br>
+        Es para ayudarte a ver avances que, en días difíciles, tu mente suele ignorar.
+      </p>
+
+      <p class="muted"><strong>Cuándo usarlo:</strong> 1 vez por semana (10 minutos).</p>
+      <p class="muted"><strong>Cómo completarlo:</strong></p>
+      <ul class="clean">
+        <li>Evalúa cada indicador del 0 al 10.</li>
+        <li>Escribe qué te drenó y qué te sostuvo.</li>
+        <li>Elige 1 ajuste pequeño para la semana siguiente.</li>
+      </ul>
+
+      <p class="muted"><strong>Escala sugerida (0–10):</strong><br>
+        0 = muy bajo / muy difícil<br>
+        10 = muy alto / muy estable
+      </p>
+
+      <div class="mini-note">
+        <strong>Importante:</strong> No buscamos semanas perfectas.
+        Buscamos tendencias reales, más calma y más sostén.
+      </div>
+    </section>
+
+    <!-- INDICADORES -->
+    <section class="card">
+      <h2>INDICADORES SEMANALES (0–10)</h2>
+      <div class="grid-ind">
+        <div class="ind-box"><div class="label-top">Ansiedad (¿qué tan alta estuvo?)</div></div>
+        <div class="ind-box"><div class="label-top">Culpa (¿qué tanto te pesó?)</div></div>
+        <div class="ind-box"><div class="label-top">Energía (¿cuánta energía sentiste?)</div></div>
+        <div class="ind-box"><div class="label-top">Calma (¿cuánta calma interna tuviste?)</div></div>
+        <div class="ind-box"><div class="label-top">Carga mental (¿qué tan saturada estuvo tu mente?)</div></div>
+        <div class="ind-box"><div class="label-top">Sensación de apoyo (¿qué tan acompañada te sentiste?)</div></div>
+        <div class="ind-box"><div class="label-top">Autocuidado real (¿cuánto te incluiste en tu día?)</div></div>
+        <div class="ind-box"><div class="label-top">Confianza en ti (¿qué tanto confiaste en tu criterio?)</div></div>
+      </div>
+    </section>
+
+    <!-- PLANTILLA SEMANAL -->
+    <section class="card">
+      <div class="section-title">
+        <h2>PLANTILLA SEMANAL (REPETIR 8 VECES)</h2>
+        <div class="week-picker hide-print">
+          <label for="weekSelect" style="margin:0;">Semana:</label>
+          <select id="weekSelect" style="width:auto;min-height:40px;">
+            <option value="1">Semana 1</option>
+            <option value="2">Semana 2</option>
+            <option value="3">Semana 3</option>
+            <option value="4">Semana 4</option>
+            <option value="5">Semana 5</option>
+            <option value="6">Semana 6</option>
+            <option value="7">Semana 7</option>
+            <option value="8">Semana 8</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div>
+          <label for="labelSemana">Semana</label>
+          <input id="labelSemana" type="text" readonly />
+        </div>
+        <div>
+          <label for="fechaSemana">Fecha</label>
+          <input id="fechaSemana" type="date" />
+        </div>
+      </div>
+
+      <h3>1) Mi puntuación de la semana (0–10)</h3>
+      <div class="row-2">
+        <div><label>Ansiedad</label><select id="ansiedad"></select></div>
+        <div><label>Culpa</label><select id="culpa"></select></div>
+      </div>
+      <div class="row-2" style="margin-top:8px;">
+        <div><label>Energía</label><select id="energia"></select></div>
+        <div><label>Calma</label><select id="calma"></select></div>
+      </div>
+      <div class="row-2" style="margin-top:8px;">
+        <div><label>Carga mental</label><select id="cargaMental"></select></div>
+        <div><label>Sensación de apoyo</label><select id="apoyo"></select></div>
+      </div>
+      <div class="row-2" style="margin-top:8px;">
+        <div><label>Autocuidado real</label><select id="autocuidado"></select></div>
+        <div><label>Confianza en mí</label><select id="confianza"></select></div>
+      </div>
+
+      <h3>2) Esta semana me drenó:</h3>
+      <textarea id="dreno"></textarea>
+
+      <h3>3) Esta semana me sostuvo:</h3>
+      <textarea id="sostuvo"></textarea>
+
+      <h3>4) Lo que sí hice bien (aunque haya sido pequeño):</h3>
+      <textarea id="hiceBien"></textarea>
+
+      <h3>5) Ajuste mínimo para la próxima semana (1 acción):</h3>
+      <textarea id="ajuste"></textarea>
+
+      <h3>6) Frase ancla de mi semana:</h3>
+      <input id="fraseSemana" type="text" />
+
+      <p id="statusWeek" class="status">✅ Semana guardada</p>
+    </section>
+
+    <!-- RESUMEN VISUAL -->
+    <section class="card">
+      <h2>RESUMEN VISUAL RÁPIDO (1 PÁGINA)</h2>
+      <p class="muted">Mi tendencia en 8 semanas (completa con una puntuación general por semana).</p>
+
+      <div class="quick-grid">
+        <div class="quick-item"><label>Semana 1</label><select id="r1"></select></div>
+        <div class="quick-item"><label>Semana 2</label><select id="r2"></select></div>
+        <div class="quick-item"><label>Semana 3</label><select id="r3"></select></div>
+        <div class="quick-item"><label>Semana 4</label><select id="r4"></select></div>
+        <div class="quick-item"><label>Semana 5</label><select id="r5"></select></div>
+        <div class="quick-item"><label>Semana 6</label><select id="r6"></select></div>
+        <div class="quick-item"><label>Semana 7</label><select id="r7"></select></div>
+        <div class="quick-item"><label>Semana 8</label><select id="r8"></select></div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <label for="obsProgreso">¿Qué observo en mi progreso?</label>
+        <textarea id="obsProgreso"></textarea>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label for="habitoMantener">¿Qué hábito quiero mantener?</label>
+        <textarea id="habitoMantener"></textarea>
+      </div>
+
+      <p id="statusResumen" class="status">✅ Resumen guardado</p>
+    </section>
+
+    <!-- CIERRE FINAL -->
+    <section class="card">
+      <h2>CIERRE FINAL (SEMANA 8)</h2>
+
+      <label for="hoyReconozco">Hoy reconozco que…</label>
+      <textarea id="hoyReconozco"></textarea>
+
+      <label for="aprendizaje" style="margin-top:8px;">Mi mayor aprendizaje emocional de estas 8 semanas:</label>
+      <textarea id="aprendizaje"></textarea>
+
+      <label for="compromiso" style="margin-top:8px;">Mi compromiso para el próximo mes:</label>
+      <textarea id="compromiso"></textarea>
+
+      <label for="fraseCierre" style="margin-top:8px;">Frase de cierre:</label>
+      <textarea id="fraseCierre">Estoy avanzando, incluso cuando el avance es silencioso.</textarea>
+
+      <p id="statusCierre" class="status">✅ Cierre guardado</p>
+    </section>
+
+    <!-- 24 FRASES -->
+    <section class="card">
+      <h2>24 FRASES ANCLA (3 POR SEMANA, EXTRA)</h2>
+      <ol class="anchors">
+        <li>Avanzar lento también es avanzar.</li>
+        <li>Lo pequeño sostenido cambia lo grande.</li>
+        <li>Mi progreso no necesita perfección.</li>
+        <li>Hoy me hablo con más respeto.</li>
+        <li>Estoy aprendiendo a sostenerme mejor.</li>
+        <li>Mi calma merece espacio diario.</li>
+        <li>No todo depende de mí.</li>
+        <li>Pedir ayuda también es progreso.</li>
+        <li>Cuidarme no es un premio, es una base.</li>
+        <li>Estoy construyendo una maternidad más sostenible.</li>
+        <li>Menos culpa, más realidad.</li>
+        <li>Mi energía importa.</li>
+        <li>Estoy soltando exigencias imposibles.</li>
+        <li>Un límite sano también es amor.</li>
+        <li>Hoy elijo claridad sobre caos.</li>
+        <li>Puedo empezar de nuevo esta semana.</li>
+        <li>Estoy haciendo ajustes que sí me cuidan.</li>
+        <li>No necesito hacerlo todo para hacerlo bien.</li>
+        <li>Mi bienestar también cuenta en mi familia.</li>
+        <li>Soy más fuerte cuando me sostengo con amabilidad.</li>
+        <li>Estoy creando apoyo real, paso a paso.</li>
+        <li>Mi proceso merece paciencia.</li>
+        <li>Ya no me exijo como antes, me acompaño mejor.</li>
+        <li>No estoy sola en esto.</li>
+      </ol>
+    </section>
+
+    <p class="footer-note">El contenido se guarda en este dispositivo (navegador).</p>
+  </main>
+
+  <script>
+    // ---------- helpers ----------
+    const weekSelect = document.getElementById('weekSelect');
+    const labelSemana = document.getElementById('labelSemana');
+
+    const saveBtn = document.getElementById('saveBtn');
+    const pdfBtn = document.getElementById('pdfBtn');
+    const resetWeekBtn = document.getElementById('resetWeekBtn');
+
+    const statusWeek = document.getElementById('statusWeek');
+    const statusResumen = document.getElementById('statusResumen');
+    const statusCierre = document.getElementById('statusCierre');
+
+    const weekFields = [
+      'fechaSemana','ansiedad','culpa','energia','calma','cargaMental','apoyo',
+      'autocuidado','confianza','dreno','sostuvo','hiceBien','ajuste','fraseSemana'
+    ];
+
+    const resumenFields = ['r1','r2','r3','r4','r5','r6','r7','r8','obsProgreso','habitoMantener'];
+    const cierreFields = ['hoyReconozco','aprendizaje','compromiso','fraseCierre'];
+
+    const keyWeek = (n) => `tracker_8s_week_${n}`;
+    const keyResumen = 'tracker_8s_resumen';
+    const keyCierre = 'tracker_8s_cierre';
+
+    function fillScale(selectId){
+      const sel = document.getElementById(selectId);
+      if(!sel) return;
+      sel.innerHTML = '';
+      const ph = document.createElement('option');
+      ph.value = '';
+      ph.textContent = 'Selecciona (0–10)';
+      sel.appendChild(ph);
+      for(let i=0; i<=10; i++){
+        const op = document.createElement('option');
+        op.value = String(i);
+        op.textContent = String(i);
+        sel.appendChild(op);
+      }
+    }
+
+    [
+      'ansiedad','culpa','energia','calma','cargaMental','apoyo','autocuidado','confianza',
+      'r1','r2','r3','r4','r5','r6','r7','r8'
+    ].forEach(fillScale);
+
+    function getValue(id){
+      const el = document.getElementById(id);
+      return el ? el.value : '';
+    }
+
+    function setValue(id, v){
+      const el = document.getElementById(id);
+      if(el) el.value = v ?? '';
+    }
+
+    function blink(el){
+      el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 1300);
+    }
+
+    // ---------- week ----------
+    function saveWeek(){
+      const wk = weekSelect.value || '1';
+      const data = {};
+      weekFields.forEach(id => data[id] = getValue(id));
+      localStorage.setItem(keyWeek(wk), JSON.stringify(data));
+      blink(statusWeek);
+    }
+
+    function loadWeek(){
+      const wk = weekSelect.value || '1';
+      labelSemana.value = `Semana ${wk}`;
+      const raw = localStorage.getItem(keyWeek(wk));
+      const data = raw ? JSON.parse(raw) : {};
+      weekFields.forEach(id => setValue(id, data[id]));
+    }
+
+    function resetCurrentWeek(){
+      const wk = weekSelect.value || '1';
+      localStorage.removeItem(keyWeek(wk));
+      loadWeek();
+    }
+
+    // ---------- resumen ----------
+    function saveResumen(){
+      const data = {};
+      resumenFields.forEach(id => data[id] = getValue(id));
+      localStorage.setItem(keyResumen, JSON.stringify(data));
+      blink(statusResumen);
+    }
+
+    function loadResumen(){
+      const raw = localStorage.getItem(keyResumen);
+      const data = raw ? JSON.parse(raw) : {};
+      resumenFields.forEach(id => setValue(id, data[id]));
+    }
+
+    // ---------- cierre ----------
+    function saveCierre(){
+      const data = {};
+      cierreFields.forEach(id => data[id] = getValue(id));
+      localStorage.setItem(keyCierre, JSON.stringify(data));
+      blink(statusCierre);
+    }
+
+    function loadCierre(){
+      const raw = localStorage.getItem(keyCierre);
+      const data = raw ? JSON.parse(raw) : {};
+      cierreFields.forEach(id => setValue(id, data[id]));
+      if(!data.fraseCierre){
+        document.getElementById('fraseCierre').value = 'Estoy avanzando, incluso cuando el avance es silencioso.';
+      }
+    }
+
+    function bindAutosave(ids, fn){
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        const evt = (el.tagName === 'SELECT' || el.type === 'date') ? 'change' : 'input';
+        el.addEventListener(evt, fn);
+      });
+    }
+
+    bindAutosave(weekFields, saveWeek);
+    bindAutosave(resumenFields, saveResumen);
+    bindAutosave(cierreFields, saveCierre);
+
+    weekSelect.addEventListener('change', loadWeek);
+
+    saveBtn.addEventListener('click', () => {
+      saveWeek(); saveResumen(); saveCierre();
+    });
+
+    resetWeekBtn.addEventListener('click', resetCurrentWeek);
+
+    pdfBtn.addEventListener('click', () => {
+      saveWeek(); saveResumen(); saveCierre();
+      window.print();
+    });
+
+    // init
+    weekSelect.value = '1';
+    loadWeek();
+    loadResumen();
+    loadCierre();
+  </script>
+</body>
+</html>

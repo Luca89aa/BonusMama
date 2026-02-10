@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparte tu experiencia | Bonus Mamá</title>
+  <meta name="description" content="Comparte tu experiencia y ayuda a otras madres." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema:#F8F4EF;
+      --rosa:#EFD9D9;
+      --terracotta:#C9886B;
+      --salvia:#C9D6C5;
+      --antracite:#2D2A2A;
+      --white:#ffffff;
+      --line:rgba(45,42,42,.14);
+      --ok:#2f6c4f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--crema);
+      color:var(--antracite);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .container{
+      width:min(980px,92vw);
+      margin:0 auto;
+    }
+
+    .inner{
+      padding:16px 0 40px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:0 14px;
+      background:#fff;
+      color:var(--antracite);
+      font-weight:700;
+      font-size:.92rem;
+      text-decoration:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn.primary{
+      background:var(--terracotta);
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .btn.soft{
+      background:var(--salvia);
+      border-color:transparent;
+      color:var(--antracite);
+    }
+
+    .hero{
+      background:linear-gradient(180deg, rgba(239,217,217,.68), rgba(248,244,239,.95));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:12px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      right:-70px;
+      top:-90px;
+      border-radius:50%;
+      background:rgba(201,214,197,.28);
+      pointer-events:none;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size:clamp(1.5rem,5.8vw,2.15rem);
+      line-height:1.2;
+      font-family:"Playfair Display",Georgia,serif;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero p{
+      margin:0;
+      line-height:1.5;
+      font-size:.98rem;
+      color:rgba(45,42,42,.9);
+      position:relative;
+      z-index:1;
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(45,42,42,.05);
+      break-inside:avoid;
+      page-break-inside:avoid;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.1rem;
+      line-height:1.3;
+    }
+
+    .muted{
+      color:rgba(45,42,42,.8);
+      line-height:1.45;
+      font-size:.95rem;
+    }
+
+    .highlight{
+      border:1px dashed var(--line);
+      border-radius:12px;
+      background:rgba(201,214,197,.28);
+      padding:12px;
+      margin-top:10px;
+      line-height:1.45;
+      font-size:.94rem;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    label{
+      display:block;
+      font-size:.86rem;
+      font-weight:700;
+      margin-bottom:4px;
+    }
+
+    input[type="text"], select, textarea{
+      width:100%;
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      color:var(--antracite);
+      background:#fff;
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
+      line-height:1.45;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
+    .preview{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+    }
+
+    .preview .name{
+      font-size:.88rem;
+      color:rgba(45,42,42,.72);
+      margin-bottom:6px;
+    }
+
+    .preview .stars{
+      font-size:1rem;
+      margin-bottom:8px;
+      letter-spacing:.5px;
+    }
+
+    .preview .text{
+      margin:0;
+      line-height:1.5;
+      font-size:.95rem;
+    }
+
+    .status{
+      display:none;
+      margin-top:8px;
+      color:var(--ok);
+      font-size:.84rem;
+      font-weight:700;
+    }
+
+    .cta-box{
+      display:grid;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .small{
+      font-size:.82rem;
+      color:rgba(45,42,42,.65);
+      line-height:1.4;
+      margin-top:6px;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+
+    @media (min-width:760px){
+      .row{ grid-template-columns:1fr 1fr; }
+      .cta-box{ grid-template-columns:1fr auto auto; align-items:center; }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .topbar, .hide-print, .cta-box{ display:none !important; }
+      .hero, .card, .preview{
+        box-shadow:none !important;
+        border:1px solid #999 !important;
+      }
+      input, textarea, select{
+        border:1px solid #999 !important;
+        background:#fff !important;
+      }
+      .container{ width:100%; padding:0 10mm; }
+      .inner{ padding:0; }
+      @page{ size:A4; margin:12mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+    <div class="topbar hide-print">
+      <a class="btn" href="../index.html">← Volver a recursos</a>
+      <button id="saveBtn" class="btn soft" type="button">Guardar borrador</button>
+      <button id="pdfBtn" class="btn" type="button">Descargar PDF</button>
+    </div>
+
+    <section class="hero">
+      <h1>Comparte tu experiencia</h1>
+      <p><strong>Comparte tu experiencia y ayuda a otras madres.</strong></p>
+      <p style="margin-top:8px;">
+        Tu reseña puede dar claridad, calma y esperanza a quien hoy se siente sobrepasada.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Tu voz puede acompañar a otra mamá</h2>
+      <p class="muted">
+        A veces una frase honesta cambia el día de alguien.
+        Si este recurso te ayudó, contar tu experiencia puede ser ese apoyo que otra madre necesita hoy.
+      </p>
+      <div class="highlight">
+        Escribe desde lo real: qué te ayudó, cuándo lo usaste y qué cambio notaste (aunque haya sido pequeño).
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Escribe tu experiencia (borrador rápido)</h2>
+
+      <div class="form-grid">
+        <div class="row">
+          <div>
+            <label for="nombre">Nombre (opcional)</label>
+            <input id="nombre" type="text" placeholder="Ej: Ana" />
+          </div>
+          <div>
+            <label for="rating">Valoración</label>
+            <select id="rating">
+              <option value="">Selecciona (1–5)</option>
+              <option value="1">1 ⭐</option>
+              <option value="2">2 ⭐⭐</option>
+              <option value="3">3 ⭐⭐⭐</option>
+              <option value="4">4 ⭐⭐⭐⭐</option>
+              <option value="5">5 ⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="mensaje">Tu experiencia</label>
+          <textarea id="mensaje" placeholder="Ejemplo: Este bonus me ayudó en días de mucha saturación. Empecé con 5 minutos al día y noté más calma para priorizar sin culpa..."></textarea>
+        </div>
+      </div>
+
+      <p id="saveStatus" class="status">✅ Borrador guardado</p>
+
+      <div class="cta-box hide-print">
+        <a class="btn primary" href="https://www.amazon.com/Best-Sellers-Books/zgbs/books" target="_blank" rel="noopener noreferrer">
+          Dejar una reseña
+        </a>
+        <button id="copyBtn" class="btn" type="button">Copiar texto</button>
+        <button id="clearBtn" class="btn" type="button">Limpiar</button>
+      </div>
+      <p class="small hide-print">
+        Se abrirá Amazon en una nueva pestaña.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Vista previa</h2>
+      <div class="preview">
+        <div id="previewName" class="name">Anónimo</div>
+        <div id="previewStars" class="stars">Sin valoración</div>
+        <p id="previewText" class="text">Tu mensaje aparecerá aquí…</p>
+      </div>
+    </section>
+
+    <p class="footer-note">El borrador se guarda solo en este dispositivo (navegador).</p>
+  </main>
+
+  <script>
+    const KEY = 'bonus_comparte_experiencia_v1';
+
+    const nombre = document.getElementById('nombre');
+    const rating = document.getElementById('rating');
+    const mensaje = document.getElementById('mensaje');
+
+    const saveBtn = document.getElementById('saveBtn');
+    const pdfBtn = document.getElementById('pdfBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const saveStatus = document.getElementById('saveStatus');
+
+    const previewName = document.getElementById('previewName');
+    const previewStars = document.getElementById('previewStars');
+    const previewText = document.getElementById('previewText');
+
+    function stars(n){
+      const num = Number(n);
+      if(!num || num < 1) return 'Sin valoración';
+      return '⭐'.repeat(num) + ` (${num}/5)`;
+    }
+
+    function getData(){
+      return {
+        nombre: nombre.value.trim(),
+        rating: rating.value,
+        mensaje: mensaje.value.trim()
+      };
+    }
+
+    function setData(data){
+      nombre.value = data?.nombre || '';
+      rating.value = data?.rating || '';
+      mensaje.value = data?.mensaje || '';
+      renderPreview();
+    }
+
+    function renderPreview(){
+      const d = getData();
+      previewName.textContent = d.nombre || 'Anónimo';
+      previewStars.textContent = stars(d.rating);
+      previewText.textContent = d.mensaje || 'Tu mensaje aparecerá aquí…';
+    }
+
+    function showSaved(){
+      saveStatus.style.display = 'block';
+      setTimeout(() => saveStatus.style.display = 'none', 1200);
+    }
+
+    function save(){
+      localStorage.setItem(KEY, JSON.stringify(getData()));
+      renderPreview();
+      showSaved();
+    }
+
+    function load(){
+      const raw = localStorage.getItem(KEY);
+      if(!raw) return renderPreview();
+      try{
+        setData(JSON.parse(raw));
+      }catch(e){
+        renderPreview();
+      }
+    }
+
+    function clearAll(){
+      localStorage.removeItem(KEY);
+      setData({nombre:'', rating:'', mensaje:''});
+    }
+
+    async function copyReview(){
+      const d = getData();
+      const out =
+`Nombre: ${d.nombre || 'Anónimo'}
+Valoración: ${d.rating ? d.rating + '/5' : 'Sin valoración'}
+
+Reseña:
+${d.mensaje || ''}`.trim();
+
+      try{
+        await navigator.clipboard.writeText(out);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = out;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+
+      const old = copyBtn.textContent;
+      copyBtn.textContent = 'Copiado';
+      setTimeout(() => copyBtn.textContent = old, 1000);
+    }
+
+    [nombre, rating, mensaje].forEach(el => {
+      const evt = (el.tagName === 'SELECT') ? 'change' : 'input';
+      el.addEventListener(evt, save);
+    });
+
+    saveBtn.addEventListener('click', save);
+    pdfBtn.addEventListener('click', () => { save(); window.print(); });
+    copyBtn.addEventListener('click', copyReview);
+    clearBtn.addEventListener('click', clearAll);
+
+    load();
+  </script>
+</body>
+</html>

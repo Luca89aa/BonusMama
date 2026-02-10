@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca de 105 Frases Ancla | Bonus Mamá</title>
+  <meta name="description" content="Frases de apoyo para usar en momentos críticos." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --crema:#F8F4EF;
+      --rosa:#EFD9D9;
+      --terracotta:#C9886B;
+      --salvia:#C9D6C5;
+      --antracite:#2D2A2A;
+      --white:#ffffff;
+      --line:rgba(45,42,42,.14);
+      --ok:#2f6c4f;
+      --warn:#8a6b1f;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--crema);
+      color:var(--antracite);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .container{
+      width:min(1120px,92vw);
+      margin:0 auto;
+    }
+
+    .inner{
+      padding:16px 0 40px;
+    }
+
+    .topbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:12px;
+    }
+
+    .btn{
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:0 14px;
+      background:#fff;
+      color:var(--antracite);
+      font-weight:700;
+      font-size:.92rem;
+      text-decoration:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn.primary{
+      background:var(--terracotta);
+      border-color:transparent;
+      color:#fff;
+    }
+    .btn.soft{
+      background:var(--salvia);
+      border-color:transparent;
+      color:var(--antracite);
+    }
+
+    .hero{
+      background:linear-gradient(180deg, rgba(239,217,217,.66), rgba(248,244,239,.95));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:12px;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size:clamp(1.45rem,5.6vw,2.1rem);
+      line-height:1.2;
+      font-family:"Playfair Display",Georgia,serif;
+    }
+
+    .hero p{
+      margin:0;
+      line-height:1.5;
+      color:rgba(45,42,42,.9);
+      font-size:.96rem;
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(45,42,42,.05);
+      break-inside:avoid;
+      page-break-inside:avoid;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      line-height:1.3;
+    }
+
+    .muted{
+      color:rgba(45,42,42,.8);
+      line-height:1.45;
+      font-size:.95rem;
+    }
+
+    .toolbar{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    input[type="text"], select{
+      width:100%;
+      min-height:44px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      color:var(--antracite);
+      background:#fff;
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    .chip{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.85rem;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .chip.active{
+      background:var(--salvia);
+      border-color:transparent;
+      font-weight:700;
+    }
+
+    .quote-focus{
+      border:1px dashed var(--line);
+      border-radius:12px;
+      padding:12px;
+      background:rgba(201,214,197,.25);
+      margin-top:10px;
+    }
+
+    .quote-focus p{
+      margin:0;
+      font-size:1rem;
+      line-height:1.5;
+      font-weight:600;
+    }
+
+    .quote-focus .row{
+      margin-top:8px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .status{
+      display:none;
+      margin-top:8px;
+      font-size:.85rem;
+      font-weight:700;
+    }
+    .status.ok{ color:var(--ok); }
+    .status.warn{ color:var(--warn); }
+
+    .section{
+      margin-top:12px;
+    }
+
+    .section-title{
+      margin:0 0 8px;
+      font-size:1rem;
+      line-height:1.35;
+      padding:9px 10px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(239,217,217,.42);
+    }
+
+    .quotes-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .quote-card{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px;
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .quote-text{
+      margin:0;
+      line-height:1.45;
+      font-size:.95rem;
+    }
+
+    .quote-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .action-btn{
+      min-height:36px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      padding:0 10px;
+      font-size:.82rem;
+      font-weight:700;
+      cursor:pointer;
+      color:var(--antracite);
+    }
+    .action-btn.ok{
+      border-color:rgba(47,108,79,.35);
+      color:var(--ok);
+    }
+    .action-btn.starred{
+      border-color:transparent;
+      background:var(--salvia);
+      color:var(--antracite);
+    }
+
+    .empty{
+      display:none;
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.92rem;
+      padding:10px 0 4px;
+    }
+
+    .count{
+      margin-top:6px;
+      color:rgba(45,42,42,.75);
+      font-size:.86rem;
+    }
+
+    .footer-note{
+      text-align:center;
+      color:rgba(45,42,42,.72);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+
+    @media (min-width:780px){
+      .toolbar{ grid-template-columns:1fr 220px auto auto; align-items:center; }
+      .quotes-grid{ grid-template-columns:1fr 1fr; }
+    }
+
+    @media (min-width:1120px){
+      .quotes-grid{ grid-template-columns:1fr 1fr 1fr; }
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .topbar, .toolbar, .chips, .quote-actions, .status, .hide-print{ display:none !important; }
+      .hero, .card, .quote-card{
+        box-shadow:none !important;
+        border:1px solid #999 !important;
+      }
+      .container{ width:100%; padding:0 9mm; }
+      .inner{ padding:0; }
+      .quotes-grid{ grid-template-columns:1fr 1fr; gap:6px; }
+      .quote-card{ padding:8px; }
+      .quote-text{ font-size:.9rem; }
+      @page{ size:A4; margin:12mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container inner">
+    <div class="topbar hide-print">
+      <a class="btn" href="../index.html">← Volver a recursos</a>
+      <button id="randomBtn" class="btn soft" type="button">Frase aleatoria</button>
+      <button id="pdfBtn" class="btn primary" type="button">Descargar PDF</button>
+    </div>
+
+    <section class="hero">
+      <h1>Biblioteca de 105 Frases Ancla</h1>
+      <p><strong>Frases de apoyo para usar en momentos críticos.</strong></p>
+      <p style="margin-top:8px;">
+        Una colección de 105 frases breves para ayudarte a regularte, recuperar claridad y hablarte con más calma en días difíciles.
+        Úsalas cuando aparezcan la culpa, la ansiedad, la sobrecarga o la duda.
+      </p>
+      <p style="margin-top:8px;">
+        Léelas, respíralas y repítelas como un recordatorio: no estás sola, no tienes que poder con todo y también mereces cuidado.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Encuentra la frase que necesitas hoy</h2>
+
+      <div class="toolbar">
+        <input id="searchInput" type="text" placeholder="Buscar por palabra (ej. culpa, calma, límites, descanso...)" />
+        <select id="categorySelect" aria-label="Filtrar por categoría">
+          <option value="all">Todas las categorías</option>
+          <option value="calma">Calma y regulación</option>
+          <option value="culpa">Culpa y autoexigencia</option>
+          <option value="limites">Límites y prioridades</option>
+          <option value="valor">Valor y autoestima</option>
+          <option value="apoyo">Apoyo y corresponsabilidad</option>
+          <option value="proceso">Proceso y progreso</option>
+          <option value="descanso">Descanso y energía</option>
+        </select>
+        <button id="showFavBtn" class="btn" type="button">Ver favoritas</button>
+        <button id="clearFiltersBtn" class="btn" type="button">Limpiar filtros</button>
+      </div>
+
+      <div class="chips">
+        <span class="chip active" data-category="all">Todas</span>
+        <span class="chip" data-category="calma">Calma</span>
+        <span class="chip" data-category="culpa">Culpa</span>
+        <span class="chip" data-category="limites">Límites</span>
+        <span class="chip" data-category="valor">Valor</span>
+        <span class="chip" data-category="apoyo">Apoyo</span>
+        <span class="chip" data-category="proceso">Proceso</span>
+        <span class="chip" data-category="descanso">Descanso</span>
+      </div>
+
+      <div class="quote-focus">
+        <p id="focusQuote">No tengo que hacerlo todo para hacerlo bien.</p>
+        <div class="row">
+          <button id="copyFocusBtn" class="btn" type="button">Copiar frase destacada</button>
+        </div>
+      </div>
+
+      <p id="statusOk" class="status ok">✅ Copiado</p>
+      <p id="statusWarn" class="status warn">⭐ Guardada en favoritas</p>
+
+      <p id="countInfo" class="count"></p>
+      <p id="emptyState" class="empty">No hay frases con esos filtros.</p>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Biblioteca</h3>
+      <div id="quotesGrid" class="quotes-grid"></div>
+    </section>
+
+    <p class="footer-note">Tip: guarda 5 favoritas para tener tu “kit de emergencia emocional”.</p>
+  </main>
+
+  <script>
+    // =========================
+    // DATASET 105 FRASES + CATEGORÍAS
+    // =========================
+    const frases = [
+      {t:"No tengo que hacerlo todo para hacerlo bien.", c:["culpa","valor"]},
+      {t:"Hoy priorizo lo esencial.", c:["limites","calma"]},
+      {t:"Mi valor no depende de mi productividad.", c:["valor","culpa"]},
+      {t:"Estoy cansada, no soy insuficiente.", c:["valor","descanso"]},
+      {t:"Puedo pedir ayuda sin culpa.", c:["apoyo","culpa"]},
+      {t:"Mi descanso también es una prioridad.", c:["descanso","limites"]},
+      {t:"Un paso pequeño también cuenta.", c:["proceso"]},
+      {t:"No todo es urgente.", c:["limites","calma"]},
+      {t:"Hoy elijo progreso, no perfección.", c:["proceso","culpa"]},
+      {t:"Mi calma merece espacio.", c:["calma"]},
+      {t:"Delegar también es cuidar.", c:["apoyo","limites"]},
+      {t:"No estoy sola en esto.", c:["apoyo"]},
+      {t:"Lo que siento tiene sentido.", c:["valor","calma"]},
+      {t:"Puedo bajar una marcha ahora.", c:["calma"]},
+      {t:"Respirar también es avanzar.", c:["calma","proceso"]},
+      {t:"Hoy hago lo posible, y es suficiente.", c:["culpa","valor"]},
+      {t:"Mi energía es un recurso valioso.", c:["descanso","limites"]},
+      {t:"Puedo decir “no” con respeto.", c:["limites"]},
+      {t:"No necesito demostrar nada hoy.", c:["valor","culpa"]},
+      {t:"Mi maternidad real también vale.", c:["valor"]},
+      {t:"Me hablo con más amabilidad.", c:["valor","calma"]},
+      {t:"Estoy aprendiendo, no fallando.", c:["proceso","culpa"]},
+      {t:"Mi ritmo también es válido.", c:["valor","proceso"]},
+      {t:"Soltar un poco también ayuda.", c:["calma","limites"]},
+      {t:"No tengo que resolverlo todo ahora.", c:["calma","limites"]},
+      {t:"Cuidarme mejora cómo cuido.", c:["descanso","apoyo"]},
+      {t:"Mi paz también importa en casa.", c:["calma","limites"]},
+      {t:"Lo perfecto no es mi meta.", c:["culpa","proceso"]},
+      {t:"Hoy elijo claridad sobre caos.", c:["calma"]},
+      {t:"Puedo empezar de nuevo en este momento.", c:["proceso","calma"]},
+      {t:"Mi “no” también es amor.", c:["limites"]},
+      {t:"No estoy atrasada, estoy sosteniendo mucho.", c:["valor","culpa"]},
+      {t:"Mi cuerpo merece pausa.", c:["descanso"]},
+      {t:"Lo pendiente puede esperar.", c:["limites"]},
+      {t:"No necesito permiso para cuidarme.", c:["descanso","valor"]},
+      {t:"Mi cansancio merece respeto.", c:["descanso","valor"]},
+      {t:"Estoy haciendo lo mejor que puedo.", c:["valor"]},
+      {t:"Mi esfuerzo invisible también cuenta.", c:["valor","apoyo"]},
+      {t:"Menos exigencia, más presencia.", c:["culpa","calma"]},
+      {t:"Hoy suelto lo que no me toca cargar.", c:["limites","culpa"]},
+      {t:"No todo depende de mí.", c:["apoyo","limites"]},
+      {t:"Puedo elegir una sola prioridad.", c:["limites"]},
+      {t:"Mi voz merece espacio.", c:["valor","limites"]},
+      {t:"Acompañarme también es responsabilidad.", c:["valor","proceso"]},
+      {t:"Hoy no me comparo.", c:["culpa","valor"]},
+      {t:"Mi historia no se mide en días perfectos.", c:["proceso","culpa"]},
+      {t:"Estoy en proceso, y eso está bien.", c:["proceso"]},
+      {t:"Mi calma no se negocia.", c:["calma","limites"]},
+      {t:"Lo hecho con amor vale mucho.", c:["valor"]},
+      {t:"No tengo que poder con todo sola.", c:["apoyo","culpa"]},
+      {t:"Pedir apoyo es fortaleza.", c:["apoyo","valor"]},
+      {t:"Hoy cuido mi energía con intención.", c:["descanso","limites"]},
+      {t:"Puedo pausar antes de reaccionar.", c:["calma"]},
+      {t:"Regularme primero también es cuidar.", c:["calma","apoyo"]},
+      {t:"No necesito estar al 100% para amar bien.", c:["culpa","valor"]},
+      {t:"Mi presencia vale más que la perfección.", c:["valor","culpa"]},
+      {t:"Hoy me doy permiso para descansar.", c:["descanso"]},
+      {t:"Soy suficiente incluso en días difíciles.", c:["valor"]},
+      {t:"Mi bienestar no va para después.", c:["descanso","limites"]},
+      {t:"Estoy construyendo una maternidad sostenible.", c:["proceso"]},
+      {t:"Menos culpa, más verdad.", c:["culpa","calma"]},
+      {t:"No me define un momento difícil.", c:["valor","proceso"]},
+      {t:"Puedo reparar y volver a conectar.", c:["proceso","apoyo"]},
+      {t:"Equivocarme no borra mi amor.", c:["culpa","valor"]},
+      {t:"Mi límite es válido.", c:["limites","valor"]},
+      {t:"Hoy me trato con dignidad.", c:["valor"]},
+      {t:"Mi paz interna también cuida a mi familia.", c:["calma","apoyo"]},
+      {t:"Una cosa a la vez.", c:["calma","limites"]},
+      {t:"Hoy no corro, priorizo.", c:["limites","calma"]},
+      {t:"No todo pensamiento es verdad.", c:["calma"]},
+      {t:"Puedo cuestionar mi crítica interna.", c:["culpa","valor"]},
+      {t:"La culpa habla fuerte, no siempre cierto.", c:["culpa","calma"]},
+      {t:"Mi descanso no se gana, se respeta.", c:["descanso","valor"]},
+      {t:"Estoy aquí, y eso ya es mucho.", c:["valor","proceso"]},
+      {t:"Mi valor no cambia por un día caótico.", c:["valor","culpa"]},
+      {t:"Puedo elegir lo que sí suma.", c:["limites","calma"]},
+      {t:"Mi maternidad no necesita aprobación externa.", c:["valor"]},
+      {t:"Hoy elijo hablarme como a una amiga.", c:["valor","calma"]},
+      {t:"Estoy más acompañada de lo que creo.", c:["apoyo"]},
+      {t:"Mi ternura también es para mí.", c:["valor","calma"]},
+      {t:"No tengo que estar disponible todo el tiempo.", c:["limites","descanso"]},
+      {t:"Puedo cerrar el día sin terminarlo todo.", c:["calma","limites"]},
+      {t:"Lo mínimo también es valioso.", c:["proceso","valor"]},
+      {t:"Hoy me incluyo en la ecuación.", c:["descanso","valor"]},
+      {t:"Mi equilibrio merece protección diaria.", c:["descanso","limites"]},
+      {t:"Estoy soltando exigencias imposibles.", c:["culpa","proceso"]},
+      {t:"Mi casa puede estar en proceso y yo también.", c:["proceso","culpa"]},
+      {t:"Puedo transformar prisa en presencia.", c:["calma"]},
+      {t:"Hoy decido desde calma, no desde culpa.", c:["calma","culpa"]},
+      {t:"Soy más que mi lista de pendientes.", c:["valor","limites"]},
+      {t:"Mi amor no se mide por agotamiento.", c:["descanso","culpa"]},
+      {t:"Puedo cuidar sin anularme.", c:["limites","valor"]},
+      {t:"Hoy confío en mi criterio.", c:["valor"]},
+      {t:"Mi manera de maternar también es válida.", c:["valor"]},
+      {t:"No necesito volver a ser la de antes.", c:["proceso","valor"]},
+      {t:"Estoy naciendo en una nueva versión de mí.", c:["proceso"]},
+      {t:"Lo que callo también merece cuidado.", c:["valor","calma"]},
+      {t:"Tengo derecho a ocupar espacio.", c:["limites","valor"]},
+      {t:"Mi cansancio no es fracaso.", c:["descanso","valor"]},
+      {t:"Hoy me sostengo con compasión.", c:["calma","valor"]},
+      {t:"No estoy empezando de cero, tengo experiencia.", c:["proceso","valor"]},
+      {t:"Cada pequeño ajuste cuenta.", c:["proceso"]},
+      {t:"Mi progreso puede ser silencioso y real.", c:["proceso","valor"]},
+      {t:"Estoy avanzando, incluso despacio.", c:["proceso"]},
+      {t:"No estoy sola: también merezco ser cuidada.", c:["apoyo","valor"]}
+    ];
+
+    // =========================
+    // RENDER / LOGIC
+    // =========================
+    const grid = document.getElementById('quotesGrid');
+    const searchInput = document.getElementById('searchInput');
+    const categorySelect = document.getElementById('categorySelect');
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const showFavBtn = document.getElementById('showFavBtn');
+    const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+    const randomBtn = document.getElementById('randomBtn');
+    const copyFocusBtn = document.getElementById('copyFocusBtn');
+    const focusQuote = document.getElementById('focusQuote');
+    const pdfBtn = document.getElementById('pdfBtn');
+    const emptyState = document.getElementById('emptyState');
+    const countInfo = document.getElementById('countInfo');
+
+    const statusOk = document.getElementById('statusOk');
+    const statusWarn = document.getElementById('statusWarn');
+
+    const favKey = 'frases_ancla_favoritas_v1';
+    let showOnlyFav = false;
+
+    function normalize(txt){
+      return txt
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'');
+    }
+
+    function getFavs(){
+      try{
+        return JSON.parse(localStorage.getItem(favKey) || '[]');
+      }catch(e){ return []; }
+    }
+
+    function saveFavs(arr){
+      localStorage.setItem(favKey, JSON.stringify(arr));
+    }
+
+    function isFav(idx){
+      return getFavs().includes(idx);
+    }
+
+    function toggleFav(idx){
+      const favs = getFavs();
+      const p = favs.indexOf(idx);
+      if(p >= 0) favs.splice(p,1);
+      else favs.push(idx);
+      saveFavs(favs);
+    }
+
+    async function copyText(text, btn=null){
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      if(btn){
+        const old = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('ok');
+        setTimeout(() => {
+          btn.textContent = old;
+          btn.classList.remove('ok');
+        }, 1100);
+      }
+      statusOk.style.display = 'block';
+      setTimeout(() => statusOk.style.display = 'none', 1200);
+    }
+
+    function blinkFav(){
+      statusWarn.style.display = 'block';
+      setTimeout(() => statusWarn.style.display = 'none', 1200);
+    }
+
+    function getActiveCategory(){
+      return categorySelect.value || 'all';
+    }
+
+    function setCategory(cat){
+      categorySelect.value = cat;
+      chips.forEach(ch => ch.classList.toggle('active', ch.dataset.category === cat));
+    }
+
+    function createCard(item, idx){
+      const article = document.createElement('article');
+      article.className = 'quote-card';
+      article.dataset.index = String(idx);
+      article.dataset.category = item.c.join(',');
+
+      const p = document.createElement('p');
+      p.className = 'quote-text';
+      p.textContent = item.t;
+
+      const actions = document.createElement('div');
+      actions.className = 'quote-actions';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'action-btn';
+      copyBtn.textContent = 'Copiar';
+      copyBtn.addEventListener('click', () => copyText(item.t, copyBtn));
+
+      const favBtn = document.createElement('button');
+      favBtn.type = 'button';
+      favBtn.className = 'action-btn';
+      favBtn.textContent = isFav(idx) ? '★ Favorita' : '☆ Favorita';
+      if(isFav(idx)) favBtn.classList.add('starred');
+      favBtn.addEventListener('click', () => {
+        toggleFav(idx);
+        favBtn.textContent = isFav(idx) ? '★ Favorita' : '☆ Favorita';
+        favBtn.classList.toggle('starred', isFav(idx));
+        blinkFav();
+        runFilter();
+      });
+
+      actions.appendChild(copyBtn);
+      actions.appendChild(favBtn);
+
+      article.appendChild(p);
+      article.appendChild(actions);
+      return article;
+    }
+
+    function renderAll(){
+      grid.innerHTML = '';
+      frases.forEach((f, i) => grid.appendChild(createCard(f, i)));
+      runFilter();
+    }
+
+    function runFilter(){
+      const q = normalize(searchInput.value.trim());
+      const cat = getActiveCategory();
+      const favs = getFavs();
+
+      const cards = Array.from(grid.querySelectorAll('.quote-card'));
+      let visible = 0;
+
+      cards.forEach(card => {
+        const idx = Number(card.dataset.index);
+        const txt = normalize(frases[idx].t);
+        const cats = frases[idx].c;
+
+        const byText = !q || txt.includes(q);
+        const byCat = (cat === 'all') || cats.includes(cat);
+        const byFav = !showOnlyFav || favs.includes(idx);
+
+        const show = byText && byCat && byFav;
+        card.style.display = show ? '' : 'none';
+        if(show) visible++;
+      });
+
+      countInfo.textContent = `Mostrando ${visible} de ${frases.length} frases`;
+      emptyState.style.display = visible === 0 ? 'block' : 'none';
+      showFavBtn.textContent = showOnlyFav ? 'Mostrar todas' : 'Ver favoritas';
+    }
+
+    function setRandomFocus(){
+      const visibleCards = Array.from(grid.querySelectorAll('.quote-card'))
+        .filter(c => c.style.display !== 'none');
+
+      if(visibleCards.length === 0){
+        focusQuote.textContent = 'No hay frases visibles con los filtros actuales.';
+        return;
+      }
+
+      const picked = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+      const idx = Number(picked.dataset.index);
+      focusQuote.textContent = frases[idx].t;
+      picked.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+
+    // events
+    searchInput.addEventListener('input', runFilter);
+
+    categorySelect.addEventListener('change', () => {
+      setCategory(categorySelect.value);
+      runFilter();
+    });
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        setCategory(ch.dataset.category);
+        runFilter();
+      });
+    });
+
+    showFavBtn.addEventListener('click', () => {
+      showOnlyFav = !showOnlyFav;
+      runFilter();
+    });
+
+    clearFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      setCategory('all');
+      showOnlyFav = false;
+      runFilter();
+    });
+
+    randomBtn.addEventListener('click', setRandomFocus);
+    copyFocusBtn.addEventListener('click', () => copyText(focusQuote.textContent));
+
+    pdfBtn.addEventListener('click', () => window.print());
+
+    // init
+    setCategory('all');
+    renderAll();
+  </script>
+</body>
+</html>
